@@ -17,6 +17,18 @@ class LinkedList{
     this.head = newNode;
   }
 
+  insertAtEnd(data){
+    const newNode = new Node(data);
+
+    let current = this.head;
+
+    while(current.next){
+      current = current.next;
+    }
+
+    current.next = newNode;
+  }
+
   printList(){
     let current = this.head;
     let str = "";
@@ -36,7 +48,9 @@ class LinkedList{
 const list = new LinkedList();
 
 list.insertAtBeginning(18);
-list.insertAtBeginning(25);
+list.insertAtEnd(20);
+list.insertAtEnd(24);
+
 
 list.printList();
 
