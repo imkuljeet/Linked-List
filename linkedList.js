@@ -20,6 +20,11 @@ class LinkedList{
   insertAtEnd(data){
     const newNode = new Node(data);
 
+    if(!this.head){
+      this.head = newNode;
+      return;
+    }
+
     let current = this.head;
 
     while(current.next){
