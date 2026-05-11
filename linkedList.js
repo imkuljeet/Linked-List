@@ -34,6 +34,30 @@ class LinkedList{
     current.next = newNode;
   }
 
+  insertAtPosition(data, position) {
+
+    if (position === 1) {
+      this.insertAtBeginning(data);
+      return;
+    }
+  
+    const newNode = new Node(data);
+  
+    let current = this.head;
+  
+    for (let j = 1; j < position - 1 && current !== null; j++) {
+      current = current.next;
+    }
+  
+    if (current == null) {
+      console.log("POSITION OUT OF BOUNDS");
+      return;
+    }
+  
+    newNode.next = current.next;
+    current.next = newNode;
+  }
+
   printList(){
     let current = this.head;
     let str = "";
@@ -54,7 +78,14 @@ const list = new LinkedList();
 
 list.insertAtBeginning(18);
 list.insertAtEnd(20);
-list.insertAtEnd(24);
+list.insertAtEnd(30);
+list.insertAtEnd(40);
+list.insertAtEnd(50);
+list.insertAtEnd(60);
+list.insertAtEnd(70);
+list.insertAtEnd(80);
+
+list.insertAtPosition(99,4);
 
 
 list.printList();
