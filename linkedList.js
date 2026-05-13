@@ -111,6 +111,23 @@ class LinkedList{
     current.next = null;
   }
 
+  search(val){
+    let current = this.head;
+    let index = 1;
+
+    while(current){
+      if(current.data === val){
+        console.log(`Value ${val} found at position ${index} `);
+        return true;
+      }
+      current = current.next;
+      index++;
+    }
+
+    console.log(`Value${val}  not found in the list`);
+    return false;
+  }
+
   printList(){
     let current = this.head;
     let str = "";
@@ -145,9 +162,10 @@ list.printList();
 
 // list.deleteAtBeginning();
 // list.deleteAtEnd();
-list.deleteAtPosition(3);
+// list.deleteAtPosition(3);
 
-list.printList();
+// list.printList();
+list.search(50);
 
 
 
