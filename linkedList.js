@@ -58,6 +58,34 @@ class LinkedList{
     current.next = newNode;
   }
 
+  deleteAtBeginning(){
+    if(!this.head){
+      console.log("LIST IS EMPTY");
+      return;
+    }
+
+    this.head = this.head.next;
+  }
+
+  deleteAtEnd(){
+    if(!this.head){
+      console.log("LIST IS EMPTY");
+      return;
+    }
+
+    if(!this.head.next){
+      this.head = null;
+      return;
+    }
+
+    let current = this.head;
+    while(current.next && current.next.next){
+      current = current.next;
+    }
+
+    current.next = null;
+  }
+
   printList(){
     let current = this.head;
     let str = "";
@@ -89,5 +117,13 @@ list.insertAtPosition(99,4);
 
 
 list.printList();
+
+list.deleteAtBeginning();
+list.deleteAtEnd();
+
+list.printList();
+
+
+
 
 // console.log(list);
